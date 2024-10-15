@@ -1,27 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Web site created using create-snowpack-app" />
-    <link rel="stylesheet" type="text/css" href="/index.css" />
-    <title>Snowpack App</title>
-  </head>
-  <body>
-    <img id="img" src="/logo.svg" />
-    <canvas id="canvas"></canvas>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <script type="module" src="/dist/index.js"></script>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" src="/dist/index.js"></script>
+  <title>Todo List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    #new-task-form {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+    }
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    input {
+      padding: 10px;
+      border: 2px solid #3498db;
+      border-radius: 5px;
+      flex-grow: 1;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    #list {
+      list-style: none;
+      padding: 0;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .task-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .edit, .delete {
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .edit {
+      background-color: #f39c12;
+      color: white;
+    }
+
+    .delete {
+      background-color: #e74c3c;
+      color: white;
+    }
+
+    .edit:hover {
+      background-color: #d68910;
+    }
+
+    .delete:hover {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <form id="new-task-form">
+      <input type="text" id="new-task-title" placeholder="Enter new task" required>
+      <button type="submit">Add</button>
+    </form>
+    <ul id="list"></ul>
+  </div>
+</body>
 </html>
